@@ -1,0 +1,43 @@
+﻿@model IEnumerable<Sports_JDias.Models.PlayerGameStatViewModel>
+
+@{
+    ViewBag.Title = "Stats";
+}
+
+<h2>Stats</h2>
+
+<p>
+    @Html.ActionLink("Create New", "CreateStat")
+</p>
+<table class="table">
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.gameName)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.playerName)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.shotsOnGoal)
+        </th>
+        <th></th>
+    </tr>
+
+@foreach (var item in Model) {
+    <tr><td>
+            @Html.DisplayFor(modelItem => item.gameName)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.playerName)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.shotsOnGoal)
+        </td>
+        <td>
+            @Html.ActionLink("Edit", "EditStat", new { id=item.playerGameStatID }) |
+            @Html.ActionLink("Delete", "DeleteStat", new { id=item.playerGameStatID })
+        </td>
+    </tr>
+}
+
+</table>
